@@ -4,9 +4,11 @@ This Batch script allows admins to automate the install of DoD certs on many com
 
 ## Why It's Made:
 DoD uses a tool called InstallRoot.exe to install DoD certs.  This can be run from the CLI or from the UI tool.  Install Root does not offer any native automation capabilities within its tool.  All automation must be configured by the admins. 
-In our enviornment, we have had problems running this on a scheduled basis from orchestration/config tools such as SCCM, and it is unreliable to expect end users to run it periodically.
+In our environment, we have had problems running this on a scheduled basis from orchestration/config tools such as SCCM, and it is unreliable to expect end users to run it periodically.
 
 **This script is intended to automate that process.**  
+
+This script was developed by me after my team requested that we figure out a solution to out dated certs.  
 
 
 # The Technical Details
@@ -17,12 +19,12 @@ The initial goal was to write a PowerShell script that simply ran installroot.ex
 #### What problems did you face?
 1. The DoD uses TAMP files to tell Install Root which certificates, CRL details, and policy metadata to install. 
 A TAMP message is a digitally signed, binary-encoded .ir4 file, which prevents tampering or unauthorized use of trusted certificates.  These can only be accessed by the Install Root          application. 
-2. If we wanted to install certs manually using PowerShell native tools, we'd need to obtain the certs directly from DISA and completely bypass both TAMP and InstallRoot.  While this is achievable, it would would mean skipping the DoD’s official trust model.
+2. If we wanted to install certs manually using PowerShell native tools, we'd need to obtain the certs directly from DISA and completely bypass both TAMP and InstallRoot.  While this is achievable, it would mean skipping the DoD’s official trust model.
 
 Given that InstallRoot performs all of the trust validation and store placement automatically, it made more sense to automate the process using a .bat file, where it ran consistently and reliably
 
 ### What's Under the Hood
-This originalyl started as a 2-3 line .bat file deployed by SCCM to run on a schedule.  We often found it did not work but had no idea why since the script did not include logging. 
+This originally started as a 2-3 line .bat file deployed by SCCM to run on a schedule.  We often found it did not work but had no idea why since the script did not include logging. 
 
 #### It has evolved to include
 * logging and log rotation
@@ -42,7 +44,12 @@ This originalyl started as a 2-3 line .bat file deployed by SCCM to run on a sch
 
 This was certainly an eye opener in terms of understanding the evolution of scripting automation.  Not all command line tools play well with PowerShell, presumably because of its more object oriented nature.  Furthermore, the chain of trust that is established in iDoD provided ir4 files were difficult to work with at first, and required an understanding of modern chain if trust solutions and encoding.  
 
-While this project may not be flashy, it taught us a lot about how the DoD secures it's infrastrcture, maintains a high level of trust, and prevents unauthorized access in a very real and operational way.  Ideally, this tool would be made in modern Powershell, but for now, a simple bat file provides a very real and reliable solutions. 
+While this project may not be flashy, it taught us a lot about how the DoD secures its infrastrcture, maintains a high level of trust, and prevents unauthorized access in a very real and operational way.  Ideally, this tool would be made in modern PowerShell, but for now, a simple bat file provides a very real and reliable solutions. 
+
+Ultimately, this automation script achieved the following:
+* Reduced the risk of expired or missing DoD certificates across all endpoints.
+* Improved the integrity and availability of critical DoD communications reliant on updated PKI.
+* Enhanced logging capabilities, providing verifiable evidence of certificate installations, which led to improve compliance posture.
 
 ![DoD PKI Architecture](https://github.com/GrandeAnde/Portfolio/blob/main/DoD%20Cert%20Install/Docs/DoD_PKI.jpg)
 
