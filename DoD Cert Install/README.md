@@ -44,7 +44,7 @@ This was certainly an eye opener in terms of understanding the evolution of scri
 
 While this project may not be flashy, it taught us a lot about how the DoD secures it's infrastrcture, maintains a high level of trust, and prevents unauthorized access in a very real and operational way.  Ideally, this tool would be made in modern Powershell, but for now, a simple bat file provides a very real and reliable solutions. 
 
-![DoD PKI Architecture](/DoD_PKI.jpg)
+![DoD PKI Architecture](https://github.com/GrandeAnde/Portfolio/blob/main/DoD%20Cert%20Install/Docs/DoD_PKI.jpg)
 
 ##### Further Reading
 https://militarycac.com/Windows-Scripts/Automation/DOD_CERT_UPDATE/dodcerts.htm
