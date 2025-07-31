@@ -9,11 +9,11 @@ set "INSTALL_ROOT_EXE=installroot.exe"
 
 
 rem Create log directory if it doesn't exist (using PowerShell for this, as batch is clunky).  If it does exist, remove all files older than 30 days.
-powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "if (-not (Test-Path 'C:\ProgramData\DoD-PKE')) { New-Item -ItemType Directory -Path 'C:\ProgramData\DoD-PKE' -Force | Out-Null } else { get-childitem -path "C:\ProgramData\DoD-PKE" -recurse -force | where-object {$_.creationetime -lt (get-date).adddays(-30)} | remove-item -force } 
+powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "if (-not (Test-Path 'C:\ProgramData\DoD-PKE')) { New-Item -ItemType Directory -Path 'C:\ProgramData\DoD-PKE' -Force | Out-Null } else { get-childitem -path "C:\ProgramData\DoD-PKE" -recurse -force | where-object {$_.creationtime -lt (get-date).adddays(-30)} | remove-item -force }' 
 
 rem Start logging
 echo %TIMESTAMP% - ---------------------------------------------------- >> "%LOG_FILE%"
-echo %TIMESTAMP% - Starting DoD Certificate Update via Update-DoDCerts.bat >> "%LOG_FILE%"
+echo %TIMESTAMP% - Starting DoD Certificate Update via DoD_Cert_Install.bat >> "%LOG_FILE%"
 echo %TIMESTAMP% - Running as user: %USERNAME% >> "%LOG_FILE%"
 
 rem Change current directory to where installroot.exe is located
@@ -62,7 +62,7 @@ if %ERRORLEVEL% NEQ 0 (
     echo %TIMESTAMP% - SUCCESS: Insert command for %URI2% completed with exit code 0. >> "%LOG_FILE%"
 )
 
-echo %TIMESTAMP% - DoD Certificate Update via Update-DoDCerts.bat finished. >> "%LOG_FILE%"
+echo %TIMESTAMP% - DoD Certificate Update via DoD_Cert_Install.bat finished. >> "%LOG_FILE%"
 echo %TIMESTAMP% - ----------------------------------------------------^n >> "%LOG_FILE%"
 
 endlocal
