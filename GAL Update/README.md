@@ -3,7 +3,8 @@ This PowerShell script is intended to run nightly. It enumerates all domains in 
 Additionally, it performs connectivity checks per domain and logs all major actions and errors via both `start-transcript` and `out-file` logging.
 
 ## Why It's Made:
-Our organization experienced an issue where an unreachable domain caused this script to misapply GAL policies. We suspect that the `$Domain` variable was `$null`, but the script continued executing and used cached or previous data, leading to incorrect `Set-*` operations.
+Our organization automatically updates GAL policies for users and mailboxes each night at midnight.  This automation helps ensures users and groups have the correct GAL for their domain in the event that users or groups are created manually. 
+Our organization experienced an issue where an unreachable domain caused this script to misapply GAL policies. We suspect that the `$Domain` variable was `$null`, but the script continued executing and used cached or previous data, leading to incorrect `Set-*` operations, resulting in mailboxes and groups with incorrect GAL policies.
 
 # The Technical Details & Improvements 
 The core logic of the script is retained, but additional actions were added:
