@@ -23,9 +23,9 @@ The core logic of the script is retained, but additional actions were added:
 * Consider exporting logs to CSV/JSON for easier parsing and alerting.
 
 ## Lessons Learned & Final Verdict 
-This is the first time I have seen this error occur.  It made me step back and think aobut PowerShell streams and its pipeline works.  Ultimately, I came to the conclusion that we needed to enhance error catching and logging.  
-Error catching would solve the problem of stopping the script and making an intelligent and controlled decision about what to do next.
-Logging would help with getting explicit, concise, and relevant data at specific logical choke points.
+This is the first time I have seen this error occur.  It made me step back and think abuut PowerShell streams and its pipeline works and ultimately left me with two big conclusions:
+* **Prevent errors before they happen** Error catching at critical checks allows the script to pause and make ntelligent and controlled decision about what to do next.  Luckily, reverting the incorrect GAL policies were relatively easy, but it may not be so easy in the next script. 
+* **Log what you need where it matters** Logging helps with getting explicit, concise, and relevant data at specific logical choke points.  This makes troubleshooting much easier and enables enhanced scalability. 
 
 ##### Further Reading
 This was perhaps the most helpful blog post I read:
