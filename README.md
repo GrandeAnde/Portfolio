@@ -16,7 +16,7 @@ My goal is to bridge the gap between **Compliance requirements** and **Operation
 
 * **(Exchange/Noisy Senders)**
   * Too much noise meant people were tuning them out.  This script helped achieve a level of clarity that we were missing.
-* **(GAL Udate).
+
 
 ---
 
