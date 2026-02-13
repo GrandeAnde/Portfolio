@@ -13,6 +13,7 @@ My goal is to bridge the gap between **Compliance requirements** and **Operation
 ### 🛡️ Projects and Scripts 
 * **(DoD Cert Install)**
   * Automate the installation of necessary DoD root certs that are required for full functionality within a DoD environment.
+  * Both BAT and PowerShell versions. 
 
 * **(Exchange/Noisy Senders)**
   * Too much noise meant people were tuning them out.  This script helped achieve a level of clarity that we were missing.
