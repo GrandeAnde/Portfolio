@@ -34,6 +34,8 @@ $arguments_insert_WCF_ir4 = @(
 # Executing the command with the array of arguments
 & $installrootexe @arguments_insert_WCF_ir4
 
+
+
 ## Next Steps: Refactoring to Hashtable Splatting
 
 While the current script is a major improvement, the next evolution for this tool is to refactor the argument arrays into **hashtables** for use with **Splatting** against the `Start-Process` cmdlet. This is the modern, idiomatic way to run external programs in PowerShell and offers several key advantages.
