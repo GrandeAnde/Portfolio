@@ -45,12 +45,12 @@ This project showcases several powerful, idiomatic PowerShell concepts:
 
 ## Lessons Learned
 
-The Power of the Pipeline for Data Analysis:
-The pipeline (|) is more than just a way to chain commands; it's an efficient engine for processing data streams. By keeping the logic within the pipeline, you can process very large datasets with minimal memory overhead because you are handling one object at a time. This is vastly more efficient than loading millions of log entries into an array before processing.
+This project reinforces two powerful concepts in PowerShell automation:
 
-Summarize, then Reshape (Group-Object + Select-Object):
-The real analytical power of this script comes from a two-step pattern:
+1.  **The Power of the Pipeline for Data Analysis:**
+    The pipeline (`|`) is more than just a way to chain commands; it's an efficient engine for processing data streams. By keeping the logic within the pipeline, you can process very large datasets with minimal memory overhead because you are handling one object at a time.
 
-Summarize with Group-Object: This is the tool for analysis. Its job is to take a massive amount of "raw data" and transform it into a much smaller amount of "grouped information" that answers a specific question (e.g., "How many times does this identical alert appear?").
-
-Reshape with Select-Object and Calculated Properties: The output of Group-Object is complex and not user-friendly. The crucial next step is to use calculated properties (@{Name=...;Expression=...}) to "unpack" that complex group object and build the final, clean, human-readable record.
+2.  **Summarize, then Reshape (`Group-Object` + `Select-Object`):**
+    The real analytical power of this script comes from a two-step pattern:
+    *   **Summarize with `Group-Object`:** This is the tool for analysis. Its job is to take a massive amount of "raw data" and transform it into a much smaller amount of "grouped information" that answers a specific question (e.g., "How many times does this identical alert appear?").
+    *   **Reshape with `Select-Object` and Calculated Properties:** The output of `Group-Object` is complex and not user-friendly. The crucial next step is to use calculated properties (`@{Name=...;Expression=...}`) to "unpack" that complex group object and build the final, clean, human-readable record.
