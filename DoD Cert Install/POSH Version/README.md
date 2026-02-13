@@ -33,7 +33,7 @@ $arguments_insert_WCF_ir4 = @(
 
 # Executing the command with the array of arguments
 & $installrootexe @arguments_insert_WCF_ir4
-
+```
 
 
 ## Next Steps: Refactoring to Hashtable Splatting
