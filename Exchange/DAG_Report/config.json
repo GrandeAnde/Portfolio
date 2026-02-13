@@ -1,0 +1,32 @@
+{
+  "Reporting": {
+    "SendEmailOnSuccess": true,
+    "ReportFrom": "exchange-monitor@yourdomain.com",
+    "ReportTo": "exchange-admins@yourdomain.com",
+    "SmtpServer": "smtp.yourdomain.com"
+  },
+  "Environment": {
+    "ExchangeServers": [
+      "ex01",
+      "ex02",
+      "ex02",
+      "ex04",
+    ],
+     "DomainControllers": [
+       "dc01.domain.com"
+    ],
+    "Services": [
+      "MSExchangeIS",
+      "MSExchangeTransport",
+      "MSExchangeADTopology",
+      "MSExchangeRPC",
+      "MSExchangeFrontEndTransport"
+    ]
+  },
+  "Thresholds": {
+    "DiskSpaceGB": 100,
+    "QueueCount": 50,
+    "CertificateDays": 30,
+    "BackupDays": 2
+  }
+}
